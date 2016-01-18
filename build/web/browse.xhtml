@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <body>
+
+        <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+    template="./template.xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+
+        <ui:define name="top">
+            top
+        </ui:define>
+
+        <ui:define name="body">
+        
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="Username"/>
+                    <h:outputText value="#{usersController.selected.username}" title="Username"/>
+                    <h:outputText value="Email"/>
+                    <h:outputText value="#{usersController.selected.email}" title="Email"/>
+                    <h:outputText value="LastName"/>
+                    <h:outputText value="#{usersController.selected.lastname}"/>
+                </h:panelGrid>
+                <br/>
+                <br/>
+                <h:commandLink action="#{usersController.prepareList}" value="View All List"/>
+                <br/>
+            </h:form>
+
+        </ui:define>
+    </ui:composition>
+
+    </body>
+</html>

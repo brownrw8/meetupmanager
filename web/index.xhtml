@@ -1,0 +1,59 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:ui="http://java.sun.com/jsf/facelets"
+  xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="./template.xhtml">
+        <ui:define name="body">
+            <h:form>
+                <h:commandLink action="#{usersController.previous}" value="Previous #{usersController.pageSize}" rendered="#{usersController.hasPreviousPage}"/> 
+                <h:commandLink action="#{usersController.next}" value="Next #{usersController.pageSize}" rendered="#{usersController.hasNextPage}"/> 
+                <h:dataTable value="#{usersController.users}" var="user" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Username"/>
+                        </f:facet>
+                        <h:outputText value="#{user.username}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Email"/>
+                        </f:facet>
+                        <h:outputText value="#{user.email}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value=" "/>
+                        </f:facet>
+                        <h:commandLink action="#{usersController.prepareView}" value="View"/>
+                    </h:column>
+                </h:dataTable>
+                <br/>
+            </h:form>
+            <h:form>
+              <h:commandLink action="#{eventsController.previous}" value="Previous #{eventsController.pageSize}" rendered="#{eventsController.hasPreviousPage}"/> 
+                <h:commandLink action="#{eventsController.next}" value="Next #{eventsController.pageSize}" rendered="#{eventsController.hasNextPage}"/> 
+                <h:dataTable value="#{eventsController.events}" var="event" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Name"/>
+                        </f:facet>
+                        <h:outputText value="#{event.name}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Category"/>
+                        </f:facet>
+                        <h:outputText value="#{event.eventCategories}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value=" "/>
+                        </f:facet>
+                        <h:commandLink action="#{eventsController.prepareView}" value="View"/>
+                    </h:column>
+                </h:dataTable>
+                <br/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
