@@ -3,16 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Rob/Desktop/MeetupManager/src/java/meetupmanager/Users.hbm.xml</file>
-            <file>file:/C:/Users/Rob/Desktop/MeetupManager/src/java/meetupmanager/UsersController.java</file>
-            <file>file:/C:/Users/Rob/Desktop/MeetupManager/web/browse.xhtml</file>
-            <file>file:/C:/Users/Rob/Desktop/MeetupManager/src/java/hibernate.cfg.xml</file>
-            <file>file:/C:/Users/Rob/Desktop/MeetupManager/src/java/tests/Test.java</file>
-            <file>file:/C:/Users/Rob/Desktop/MeetupManager/src/java/meetupmanager/UsersHelper.java</file>
-            <file>file:/C:/Users/Rob/Desktop/MeetupManager/src/java/meetupmanager/HibernateUtil.java</file>
-            <file>file:/C:/Users/Rob/Desktop/MeetupManager/src/java/meetupmanager/Users.java</file>
-            <file>file:/C:/Users/Rob/Desktop/MeetupManager/web/index.xhtml</file>
-            <file>file:/C:/Users/Rob/Desktop/MeetupManager/web/template.xhtml</file>
+            <file>file:/C:/Users/Rob/Desktop/MeetupManager/src/java/meetupmanager/AuthServlet.java</file>
+            <file>file:/C:/Users/Rob/Desktop/MeetupManager/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Rob/Desktop/MeetupManager/web/auth.jsp</file>
+            <file>file:/C:/Users/Rob/Desktop/MeetupManager/src/java/meetupmanager/UserServlet.java</file>
+            <file>file:/C:/Users/Rob/Desktop/MeetupManager/src/java/meetupmanager/AdminServlet.java</file>
+            <file>file:/C:/Users/Rob/Desktop/MeetupManager/web/common/_header.jsp</file>
+            <file>file:/C:/Users/Rob/Desktop/MeetupManager/web/resources/css/default.css</file>
+            <file>file:/C:/Users/Rob/Desktop/MeetupManager/web/common/_authform.jsp</file>
+            <file>file:/C:/Users/Rob/Desktop/MeetupManager/web/WEB-INF/welcome.jsp</file>
         </group>
     </open-files>
 </project-private>

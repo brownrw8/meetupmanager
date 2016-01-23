@@ -4,16 +4,9 @@ body {
     font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
     color: #000000;  
     margin: 10px;
-}
-
-h1 {
-    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
-    border-bottom: 1px solid #AFAFAF; 
-    font-size:  16px;
-    font-weight: bold;
-    margin: 0px;
-    padding: 0px;
-    color: #D20005;
+    border:1px solid blue;
+    border-radius:5px;
+    background-image:url(http://cdn1.tnwcdn.com/wp-content/blogs.dir/1/files/2012/01/Screen-Shot-2012-01-20-at-2.31.06-PM-520x216.png);
 }
 
 a:link, a:visited {
@@ -26,4 +19,139 @@ a:link:hover, a:visited:hover  {
   color: #045491;
   font-weight : bold;
   text-decoration : underline;
+}
+
+nav.navbar {
+    margin:0;
+    padding:5px;
+    background:rgba(50,100,255,0.7);
+    border-bottom:2px solid blue;
+}
+
+nav.navbar > h1 {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    font-size:  20px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+    color: #FFFFFF;
+}
+
+nav.navbar > p {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    font-size:  14px;
+    font-style: italic;
+    margin: 0px;
+    padding: 0px;
+    color: #FFFFFF;
+}
+
+h2.welcome {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    font-size:  26px;
+    margin: 0px;
+    padding: 40px;
+    color: #0F0000;
+    text-align:center;
+}
+
+img.welcome {
+    display:block;
+    margin-right:auto;
+    margin-left:auto;
+}
+
+p.welcome {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    font-size:  16px;
+    margin: 0px;
+    padding: 10px;
+    color: #0F0000;
+    font-style: italic;
+    text-align:center;
+    background:rgba(150,150,0,0.2);
+}
+
+footer.footer-menu {
+    background:rgba(50,100,255,0.7);
+    border:1px solid blue;
+    padding:10px;
+    position:relative;
+    text-align:center;
+    height:auto;
+}
+
+footer.footer-menu > span.menu-item {
+    padding:10px;
+    border:1px solid darkslategrey;
+    height:400px;
+    text-align:center;
+    background:rgba(0,0,255,0.2);
+    transition-property: background, color;
+    transition-duration: 1.5s;
+}
+
+footer.footer-menu > span.menu-item:hover {
+    background:rgba(150,0,255,0.5);
+    color:ivory;
+}
+
+footer.footer-menu > span.menu-item > a{
+    color: #FFFFFF;
+    padding:40px;
+    margin:0;
+    font-weight:bold;
+    text-align:center;
+    text-decoration:none;
+}
+
+form.auth-form {
+    display:block;
+    padding:10px;
+    margin:20px;
+    background:rgba(50,100,255,0.7);
+    border:2px solid blue;
+    text-align:center;
+}
+
+form.auth-form input {
+    width:120px;
+}
+
+form.auth-form label {
+    color:#FFFFFF;
+    font-weight:bold;
+}
+
+div.form-row {
+    height:30px;
+    line-height:30px;
+    display:block;
+}
+
+div.form-actions > button {
+    color:#FFFFFF;
+    font-weight:bold;
+    border-radius:3px;
+    width:100px;
+    text-align:center;
+}
+
+button:hover {
+    cursor:pointer;
+    background:black;
+}
+
+div.form-actions > button.submit {
+    background:linear-gradient(to bottom,rgba(0,255,0,0.8),rgba(0,255,0,0.5));
+}
+
+div.form-actions > button.reset {
+    background:linear-gradient(to bottom,rgba(255,0,0,0.8),rgba(255,0,0,0.5));
+}
+
+h2.auth-form-header {
+    padding:10px;
+    margin:10px;
+    text-align:center;
 }

@@ -5,7 +5,8 @@
  */
 package tests;
 
-
+import java.util.List;
+import meetupmanager.*;
 
 
 /**
@@ -15,6 +16,11 @@ package tests;
 public class Test {
     
     public static void main(String[] args){
-
+         BaseHelper helper;
+         helper = new EventsHelper();
+         List<Events> objects = helper.fetchAll();
+         for(Events e : objects){
+             System.out.println(e.getName());
+         }
     }
 }
