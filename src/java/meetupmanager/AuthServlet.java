@@ -11,8 +11,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import org.mindrot.jbcrypt.BCrypt;
 
 /**
  *
@@ -32,17 +30,18 @@ public class AuthServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        AuthController controller = new AuthController(request);
         try {
-            boolean isLoggedIn = isLoggedIn(request);
+            boolean isLoggedIn = controller.isLoggedIn();
             if(isLoggedIn){
-                boolean isLoggingOut = isLoggingOut(request);
+                boolean isLoggingOut = controller.isLoggingOut();
                 if(isLoggingOut){
                     request.getRequestDispatcher("/auth.jsp").forward(request, response);
                 }else{
                     response.sendRedirect("/MeetupManager/user");   
                 }
             }else{
-                boolean isAuthenticated = isAuthenticated(request);
+                boolean isAuthenticated = controller.isAuthenticated();
                 if(isAuthenticated){
                     response.sendRedirect("/MeetupManager/user");
                 }else{
@@ -54,57 +53,7 @@ public class AuthServlet extends HttpServlet {
         }
     }
     
-    private boolean isAuthenticated(HttpServletRequest request){
-        HttpSession session = request.getSession(false);
-        String username = request.getParameter("username");
-        String candidate = request.getParameter("password");
-        boolean isAuthenticated;
-        if(username==null||candidate==null){
-            isAuthenticated = false;
-            return isAuthenticated;
-        }
-        UsersHelper helper = new UsersHelper();
-        Users user = (Users)helper.fetchByAttribute("username",username);
-        if(user==null){
-            isAuthenticated = false;
-            return isAuthenticated;
-        }
-        if(!BCrypt.checkpw(candidate, user.getPassword())){
-            isAuthenticated = false;
-            return isAuthenticated;
-        }
-        request.getSession().setAttribute("loggedInUser", user);
-        if(user.getIsAdmin()){
-            request.getSession().setAttribute("loggedInAdmin", user);
-        }
-        isAuthenticated = true;
-        return isAuthenticated;
-    }
-    
-    private boolean isLoggingOut(HttpServletRequest request){
-        HttpSession session = request.getSession(false);
-        String logout = request.getParameter("logout");
-        if(logout!=null){
-            if(logout.equals("logout_loggedInUser")){
-                Users user = (Users)request.getSession().getAttribute("loggedInUser");
-                if(user.getIsAdmin()){
-                    request.getSession().setAttribute("loggedInAdmin", null);
-                }
-                request.getSession().setAttribute("loggedInUser", null);
-                return true;
-            }
-        }
-        return false;
-    }
-    
-    private boolean isLoggedIn(HttpServletRequest request){
-        HttpSession session = request.getSession(false);
-        if(session == null || session.getAttribute("loggedInUser") == null) {
-            return false;
-        } else {
-            return true;
-        }
-    }
+
     
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

@@ -11,7 +11,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -31,34 +30,22 @@ public class AdminServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        AdminController controller = new AdminController(request);
         try {     
-            boolean isLoggedIn = isLoggedIn(request);
-            boolean isAdmin = isAdmin(request);
+            boolean isLoggedIn = controller.isLoggedIn();
+            boolean isAdmin = controller.isAdmin();
             if(isLoggedIn&&isAdmin){
-                request.getRequestDispatcher("/WEB-INF/welcome.jsp").forward(request, response);
+                if(controller.isValidAction()){
+                    controller.performAction();
+                }else{
+                    request.getRequestDispatcher("/WEB-INF/welcome.jsp").forward(request, response);   
+                }
             }else{
                 response.sendRedirect("/MeetupManager/auth");
             }
         }catch(ServletException | IOException se){
             
         }
-    }
-    
-    private boolean isLoggedIn(HttpServletRequest request){
-        HttpSession session = request.getSession(false);
-        if(session == null || session.getAttribute("loggedInUser") == null) {
-            return false;
-        }
-        return true;
-    }
-    
-    private boolean isAdmin(HttpServletRequest request){
-        HttpSession session = request.getSession(false);
-        if(session == null || session.getAttribute("loggedInAdmin") == null) {
-            return false;
-        }
-        return true;
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

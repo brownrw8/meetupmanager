@@ -11,6 +11,5 @@
     <body>
         <jsp:include page="./common/_nav.jsp" />
         <jsp:include page="./common/_authform.jsp" />
-        <jsp:include page="./common/_footer.jsp" />
     </body>
 </html>

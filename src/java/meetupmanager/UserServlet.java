@@ -11,7 +11,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -31,10 +30,15 @@ public class UserServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        UserController controller = new UserController(request);
         try {     
-            boolean isLoggedIn = isLoggedIn(request);
+            boolean isLoggedIn = controller.isLoggedIn();
             if(isLoggedIn){
-                request.getRequestDispatcher("/welcome.jsp").forward(request, response);
+                if(controller.isValidAction()){
+                    controller.performAction();
+                }else{
+                    request.getRequestDispatcher("/welcome.jsp").forward(request, response);   
+                }
             }else{
                 response.sendRedirect("/MeetupManager/auth");
             }
@@ -43,14 +47,7 @@ public class UserServlet extends HttpServlet {
         }
     }
     
-    private boolean isLoggedIn(HttpServletRequest request){
-        HttpSession session = request.getSession(false);
-        if(session == null || session.getAttribute("loggedInUser") == null) {
-            return false;
-        } else {
-            return true;
-        }
-    }
+
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

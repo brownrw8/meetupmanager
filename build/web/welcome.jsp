@@ -11,6 +11,12 @@
     <body>
         <jsp:include page="./common/_nav.jsp" />
         <jsp:include page="./common/_welc.jsp" />
+        
+
+            <jsp:include page="./common/_signupform.jsp" />
+            <jsp:include page="./common/_reviewform.jsp" />
+
+        
         <jsp:include page="./common/_footer.jsp" />
     </body>
 </html>

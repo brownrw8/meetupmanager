@@ -4,7 +4,7 @@ body {
     font-family: Verdana, "Verdana CE",  Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
     color: #000000;  
     margin: 10px;
-    border:1px solid blue;
+    border:1px solid lightgrey;
     border-radius:5px;
     background-image:url(http://cdn1.tnwcdn.com/wp-content/blogs.dir/1/files/2012/01/Screen-Shot-2012-01-20-at-2.31.06-PM-520x216.png);
 }
@@ -26,6 +26,10 @@ nav.navbar {
     padding:5px;
     background:rgba(50,100,255,0.7);
     border-bottom:2px solid blue;
+    position:fixed;
+    left:0;
+    right:0;
+    top:0;
 }
 
 nav.navbar > h1 {
@@ -49,8 +53,8 @@ nav.navbar > p {
 h2.welcome {
     font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
     font-size:  26px;
-    margin: 0px;
-    padding: 40px;
+    margin-top: 20px;
+    padding: 30px;
     color: #0F0000;
     text-align:center;
 }
@@ -76,9 +80,11 @@ footer.footer-menu {
     background:rgba(50,100,255,0.7);
     border:1px solid blue;
     padding:10px;
-    position:relative;
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
     text-align:center;
-    height:auto;
 }
 
 footer.footer-menu > span.menu-item {
@@ -98,40 +104,78 @@ footer.footer-menu > span.menu-item:hover {
 
 footer.footer-menu > span.menu-item > a{
     color: #FFFFFF;
-    padding:40px;
     margin:0;
     font-weight:bold;
     text-align:center;
     text-decoration:none;
 }
 
+
 form.auth-form {
     display:block;
     padding:10px;
-    margin:20px;
+    margin:30px;
     background:rgba(50,100,255,0.7);
     border:2px solid blue;
     text-align:center;
+    position:relative;
 }
 
-form.auth-form input {
+form.signup-form {
+    height:auto;
+    display:block;
+    padding:10px;
+    margin:30px;
+    background:rgba(50,100,255,0.7);
+    border:2px solid blue;
+    text-align:center;
+    position:relative;
+}
+
+form.review-form {
+    height:auto;
+    display:block;
+    padding:10px;
+    margin:30px;
+    background:rgba(50,100,255,0.7);
+    border:2px solid blue;
+    text-align:center;
+    position:relative;
+}
+
+form input {
+    background:lightyellow;
     width:120px;
+    transition-property: background;
+    transition-duration: 1.5s;
 }
 
-form.auth-form label {
+form input:selected {
+    background:white;
+}
+
+form label {
     color:#FFFFFF;
     font-weight:bold;
+    margin-right:10px;
+    margin-bottom:10px;
 }
 
 div.form-row {
     height:30px;
     line-height:30px;
     display:block;
+    margin:20px;
+}
+
+div.form-actions {
+    margin:40px;
 }
 
 div.form-actions > button {
     color:#FFFFFF;
     font-weight:bold;
+    border:1px solid blue;
     border-radius:3px;
     width:100px;
     text-align:center;
@@ -150,8 +194,9 @@ div.form-actions > button.reset {
     background:linear-gradient(to bottom,rgba(255,0,0,0.8),rgba(255,0,0,0.5));
 }
 
-h2.auth-form-header {
+h2.form-header {
     padding:10px;
-    margin:10px;
+    margin-top:35px;
     text-align:center;
 }
+

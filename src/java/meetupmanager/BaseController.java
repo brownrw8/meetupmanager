@@ -5,7 +5,14 @@
  */
 package meetupmanager;
 
-import javax.faces.model.DataModel;
+import java.lang.reflect.Method;
+import java.util.Map;
+import java.util.concurrent.Executor;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import serviceMethod.ServiceMethod;
+
+
 
 
 
@@ -13,49 +20,38 @@ import javax.faces.model.DataModel;
  *
  * @author Rob
  */
-abstract class BaseController {
-    protected int startId;
-    protected int endId;
-    protected int recordCount = 1000;
-    protected int pageSize = 10;
-    protected int selectedItemIndex;
+public abstract class BaseController {
+    protected final HttpServletRequest request;
+    protected Map<String, ServiceMethod> actions;
     
-    abstract void recreateModel(); 
+    public BaseController(HttpServletRequest request){
+        this.request = request;
+    }
     
-     public boolean isHasNextPage() {
-        if (endId + pageSize <= recordCount) {
-            return true;
+    public boolean isLoggedIn(){
+        HttpSession session = request.getSession(false);
+        if(session == null || session.getAttribute("loggedInUser") == null) {
+            return false;
+        }
+        return true;
+    }
+    
+    public boolean isValidAction() {
+        String action = request.getParameter("action");
+        if(action!=null){
+            final Executor serviceMethod = (Executor) actions.get(action);
+            if(serviceMethod != null) {
+                return true;
+            }   
         }
         return false;
     }
-
-    public boolean isHasPreviousPage() {
-        if (startId-pageSize > 0) {
-            return true;
-        }
-        return false;
-    }
-
-    public String next() {
-        startId = endId+1;
-        endId = endId + pageSize;
-        recreateModel();
-        return "index";
-    }
-
-    public String previous() {
-        startId = startId - pageSize;
-        endId = endId - pageSize;
-        recreateModel();
-        return "index";
-    }
-
-    public int getPageSize() {
-        return pageSize;
-    }
     
-    public String prepareList(){
-        recreateModel();
-        return "index";
+    public void performAction() {
+        String action = request.getParameter("action");
+        final ServiceMethod serviceMethod = (ServiceMethod)actions.get(action);
+        if(serviceMethod != null) {
+            serviceMethod.execute();
+        }
     }
 }

@@ -3,7 +3,7 @@
     Created on : Jan 19, 2016, 7:54:37 PM
     Author     : Rob
 --%>
-<h2 class="auth-form-header">Secure User Authentication</h2>
+<h2 class="form-header">Secure User Authentication</h2>
 <form class="auth-form" action="auth" method=post>
     <div class="form-row">
     <label for="username">Username</label>
