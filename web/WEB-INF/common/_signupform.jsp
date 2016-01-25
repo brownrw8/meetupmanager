@@ -12,7 +12,9 @@
     </div>
     <div class="form-row">
     <label for="isRsvp">RSVP</label>
-    <input type="checkbox" name="isRsvp">
+    <span class="check-wrapper">
+    <input class="checkbox" type="checkbox" name="isRsvp">
+    </span>
     </div>
     <input type="hidden" name="action" value="signup"/>
     <div class="form-row form-actions">

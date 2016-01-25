@@ -281,3 +281,25 @@ table.events-table > tbody > tr.events-row > td {
     background:lightyellow;
 }
 
+span.check-wrapper {
+    display:inline-block;
+    width:20px;
+    height:20px;
+    background:darkslategrey;
+    border:1pk solid blue;
+    border-radius:3px;
+    transition-property: background;
+    transition-duration:500ms;
+}
+
+span.check-wrapper:hover {
+    cursor:pointer;
+}
+
+span.check-wrapper.clicked {
+    background:lawngreen;
+}
+
+span.check-wrapper > input.checkbox {
+    display:none;
+}

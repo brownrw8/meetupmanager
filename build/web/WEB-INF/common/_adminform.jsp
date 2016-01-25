@@ -20,7 +20,9 @@
     </div>
     <div class="form-row">
     <label for="isRecurring">Recurring Monthly</label>
-    <input type="checkbox" name="isRecurring">
+    <span class="check-wrapper">
+    <input class="checkbox" type="checkbox" name="isRecurring">
+    </span>
     </div>
     <div class="form-row">
     <label for="latitude">Latitude</label>

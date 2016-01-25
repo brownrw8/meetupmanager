@@ -29,5 +29,15 @@ $(document).ready(function () {
    });
    
    $( "input.date" ).datepicker();
+   $( "select" ).select2();
+   $( "span.check-wrapper" ).on('click',function(){
+      $(this).toggleClass("clicked"); 
+      var checkbox = $(this).find("input.checkbox");
+      if(checkbox.is(':checked')){
+        checkbox.prop("checked",false);
+      }else{
+        checkbox.prop("checked",true);
+      }
+   });
    $( "div.accordion" ).accordion({collapsible: true, active:false});
 });
