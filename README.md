@@ -19,3 +19,6 @@ This application functions primarily as a single-page AJAX application where use
 -	Coordinates are stored for the event’s location
 
 ![Alt text](/src/images/frontend.png "Frontend")
+
+### Other
+org.mindrot.jbcrypt - Copyright (c) 2006 Damien Miller <djm@mindrot.org>
