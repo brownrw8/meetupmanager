@@ -30,13 +30,13 @@ public class AuthServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        AuthController controller = new AuthController(request);
+        AuthController controller = new AuthController(request,response);
         try {
             boolean isLoggedIn = controller.isLoggedIn();
             if(isLoggedIn){
                 boolean isLoggingOut = controller.isLoggingOut();
                 if(isLoggingOut){
-                    request.getRequestDispatcher("/auth.jsp").forward(request, response);
+                    request.getRequestDispatcher("/WEB-INF/auth.jsp").forward(request, response);
                 }else{
                     response.sendRedirect("/MeetupManager/user");   
                 }
@@ -45,7 +45,7 @@ public class AuthServlet extends HttpServlet {
                 if(isAuthenticated){
                     response.sendRedirect("/MeetupManager/user");
                 }else{
-                    request.getRequestDispatcher("/auth.jsp").forward(request, response);
+                    request.getRequestDispatcher("/WEB-INF/auth.jsp").forward(request, response);
                 }   
             }
         }catch(ServletException | IOException se){

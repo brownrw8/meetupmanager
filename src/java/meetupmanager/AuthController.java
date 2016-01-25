@@ -5,7 +5,11 @@
  */
 package meetupmanager;
 
+import java.lang.reflect.Method;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -15,8 +19,8 @@ import org.mindrot.jbcrypt.BCrypt;
  */
 public class AuthController extends BaseController {
 
-    public AuthController(HttpServletRequest request) {
-        super(request);
+    public AuthController(HttpServletRequest request, HttpServletResponse response){
+        super(request,response);
     }
     public boolean isAuthenticated(){
         HttpSession session = request.getSession(false);

@@ -30,14 +30,24 @@ public class UserServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        UserController controller = new UserController(request);
+        UserController controller = new UserController(request,response);
         try {     
             boolean isLoggedIn = controller.isLoggedIn();
             if(isLoggedIn){
                 if(controller.isValidAction()){
                     controller.performAction();
                 }else{
-                    request.getRequestDispatcher("/welcome.jsp").forward(request, response);   
+                    Users user = (Users)request.getSession().getAttribute("loggedInUser");
+                    request.setAttribute("user", user);
+                    MeetupsHelper meetups = new MeetupsHelper();
+                    request.setAttribute("meetups", meetups.fetchAll());
+                    RatingsHelper ratings = new RatingsHelper();
+                    request.setAttribute("ratings", ratings.fetchAll());
+                    EventCategoriesHelper eventCategories = new EventCategoriesHelper();
+                    request.setAttribute("eventCategories", eventCategories.fetchAll());
+                    UserAttendeesHelper userAttendees = new UserAttendeesHelper();
+                    request.setAttribute("userAttendees", userAttendees.fetchAllByAttribute("users",user.getId()));
+                    request.getRequestDispatcher("/WEB-INF/welcome.jsp").forward(request, response);
                 }
             }else{
                 response.sendRedirect("/MeetupManager/auth");

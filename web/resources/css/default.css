@@ -143,6 +143,17 @@ form.review-form {
     position:relative;
 }
 
+form.admin-form {
+    height:auto;
+    display:block;
+    padding:10px;
+    margin:30px;
+    background:rgba(50,100,255,0.7);
+    border:2px solid blue;
+    text-align:center;
+    position:relative;
+}
+
 form input {
     background:lightyellow;
     width:120px;
@@ -159,6 +170,7 @@ form label {
     font-weight:bold;
     margin-right:10px;
     margin-bottom:10px;
+    clear:left;
 }
 
 div.form-row {
@@ -198,5 +210,74 @@ h2.form-header {
     padding:10px;
     margin-top:35px;
     text-align:center;
+}
+
+h2.table-header {
+    padding:10px;
+    margin-top:35px;
+    text-align:center;
+}
+
+h2.error {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    font-size:  26px;
+    margin-top: 20px;
+    padding: 30px;
+    color:rgba(255,0,0,0.8);
+    text-align:center;
+}
+
+p.error {
+    font-family: Arial, "Arial CE", "Lucida Grande CE", lucida, "Helvetica CE", sans-serif;
+    font-size:  16px;
+    margin: 0px;
+    padding: 10px;
+    color: #0F0000;
+    text-align:center;
+    color: #000000;
+    border:1px dashed black;
+    background:rgba(255,0,0,0.1);
+}
+
+p.error-trace {
+    color: #000000;
+    border:1px dashed black;
+}
+
+p.error-trace:nth-child(even) {
+    background:rgba(0,0,255,0.1);
+}
+
+p.error-trace:nth-child(odd) {
+    background:rgba(0,255,255,0.1);
+}
+
+div.accordion > h2 {
+    background:rgba(50,100,255,0.7);
+    color:white;
+    font-weight:bold;
+}
+
+table.events-table {
+    border: 1px solid black;
+    width:100%;
+}
+
+table.events-table > thead > tr.events-header {
+   border:1px solid blue;
+   border-bottom:2px solid blue;
+} 
+
+table.events-table > tbody > tr.events-row {
+   border:1px dashed blue;
+} 
+
+table.events-table > thead > tr.events-header > th {
+    background:darkblue;
+    color:#FFFFFF;
+}
+
+table.events-table > tbody > tr.events-row > td {
+    background:lightyellow;
 }
 
