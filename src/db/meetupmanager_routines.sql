@@ -34,4 +34,4 @@ USE `meetupmanager`;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-01-18 13:12:37
+-- Dump completed on 2016-01-24 19:06:27
